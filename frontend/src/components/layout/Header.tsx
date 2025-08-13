@@ -6,7 +6,7 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 export default function Header() {
   return (
     <header className="w-full border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors" style={{ backgroundColor: 'var(--header-background)' }}>
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="flex justify-between items-center px-4 py-4">
         {/* 로고 */}
         <Link 
           href="/" 

@@ -15,10 +15,23 @@ export default function SignupForm() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    
+    // 닉네임 필드인 경우 한글과 영어만 허용
+    if (name === 'nickname') {
+      // 한글과 영어만 허용하는 정규식
+      const koreanEnglishOnly = /^[가-힣a-zA-Z]*$/;
+      if (value === '' || koreanEnglishOnly.test(value)) {
+        setFormData(prev => ({
+          ...prev,
+          [name]: value,
+        }));
+      }
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -132,7 +145,7 @@ export default function SignupForm() {
               value={formData.nickname}
               onChange={handleInputChange}
               className="flex-1 px-4 py-3 border border-gray-300 dark:border-border-dark-subtle rounded-lg focus:outline-none focus:ring-2 focus:ring-sage-50 dark:focus:ring-border-dark-focus focus:border-sage-50 dark:focus:border-border-dark-focus bg-gray-50 dark:bg-background-dark-tertiary text-gray-900 dark:text-text-dark-primary placeholder-gray-500 dark:placeholder-text-dark-placeholder transition-all duration-200 text-base font-light tracking-wide"
-              placeholder="닉네임 입력"
+              placeholder="닉네임 입력 (한글, 영문만 가능)"
               required
               disabled={nicknameChecked}
             />
