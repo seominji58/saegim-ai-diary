@@ -41,6 +41,13 @@
   --background-selected: var(--sage-40);
   --background-brand: var(--sage-50);
 
+  /* Header 토큰 */
+  --header-background: #5C8D89;
+  --header-text: #FFFFFF;
+
+  /* Page Background 토큰 */
+  --page-background: #e5f0ef;
+
   /* Text 토큰 */
   --text-primary: var(--medium-gray);
   --text-secondary: #9ca3af;
@@ -89,43 +96,54 @@
 
 /* ==========  다크 모드 변형  ========== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* 배경 시스템 */
-    --background-primary: #1a1e1c;
-    --background-secondary: #232822;
-    --background-tertiary: #2c322b;
-    --background-hover: #343a33;
-    --background-selected: #3c443b;
+:root[class~="dark"] {
+  /* 배경 시스템 */
+  --background-primary: #111827; /* gray-900 */
+  --background-secondary: #1f2937; /* gray-800 */
+  --background-tertiary: #374151; /* gray-700 */
+  --background-hover: #4b5563; /* gray-600 */
+  --background-selected: #6b7280; /* gray-500 */
+  --background-brand: #84a68c; /* sage-70 */
 
-    /* 텍스트 시스템 */
-    --text-primary: #e5e7e6;
-    --text-secondary: #b8bab9;
-    --text-placeholder: #8a8c8b;
-    --text-inverse: #111827;
+  /* Header 토큰 - 다크모드 */
+  --header-background: #e5f0ef;
+  --header-text: #5C8D89;
 
-    /* 브랜드 컬러 다크 모드 조정 */
-    --interactive-primary: #8fb59c;
-    --interactive-primary-hover: #a3c4b0;
-    --interactive-primary-active: #7aa287;
+  /* Page Background 토큰 - 다크모드 */
+  --page-background: #111827;
 
-    /* 보더 시스템 */
-    --border-subtle: #2c322b;
-    --border-strong: #3c443b;
-    --border-focus: #8fb59c;
+  /* 텍스트 시스템 */
+  --text-primary: #f9fafb; /* gray-50 */
+  --text-secondary: #e5e7eb; /* gray-200 */
+  --text-placeholder: #6b7280; /* gray-500 */
+  --text-on-color: #111827; /* gray-900 */
+  --text-on-brand: #f7f9f8; /* sage-10 */
+  --text-inverse: #fdfdfd; /* off-white */
 
-    /* 감정별 다크 모드 색상 */
-    --emotion-happy: #e6c55a; /* 유지 */
-    --emotion-happy-bg: #2b2820;
-    --emotion-sad: #7a9bd1; /* 더 밝게 */
-    --emotion-sad-bg: #1f242b;
-    --emotion-angry: #e08a6b; /* 더 밝게 */
-    --emotion-angry-bg: #2b221f;
-    --emotion-peaceful: #8fc28f; /* 더 밝게 */
-    --emotion-peaceful-bg: #1f2b1f;
-    --emotion-worried: #ebc170; /* 더 밝게 */
-    --emotion-worried-bg: #2b2620;
-  }
+  /* 브랜드 컬러 다크 모드 조정 */
+  --interactive-primary: #84a68c; /* sage-70 */
+  --interactive-primary-hover: #9bb5a2; /* sage-60 */
+  --interactive-primary-active: #b2c5b8; /* sage-50 */
+  --interactive-primary-disabled: #6d9676; /* sage-80 */
+
+  /* 보더 시스템 */
+  --border-subtle: #374151; /* gray-700 */
+  --border-strong: #4b5563; /* gray-600 */
+  --border-interactive: #84a68c; /* sage-70 */
+  --border-focus: #9bb5a2; /* sage-60 */
+  --border-inverse: #f7f9f8; /* sage-10 */
+
+  /* 감정별 다크 모드 색상 */
+  --emotion-happy: #e6c55a; /* 유지 */
+  --emotion-happy-bg: #2b2820;
+  --emotion-sad: #7a9bd1; /* 더 밝게 */
+  --emotion-sad-bg: #1f242b;
+  --emotion-angry: #e08a6b; /* 더 밝게 */
+  --emotion-angry-bg: #2b221f;
+  --emotion-peaceful: #8fc28f; /* 더 밝게 */
+  --emotion-peaceful-bg: #1f2b1f;
+  --emotion-worried: #ebc170; /* 더 밝게 */
+  --emotion-worried-bg: #2b2620;
 }
 
 /* ==========  기본 스타일  ========== */

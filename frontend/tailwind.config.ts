@@ -6,7 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "media",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -42,6 +42,13 @@ const config: Config = {
           hover: "#DFE8E1", // sage-30
           selected: "#C9D6CB", // sage-40
           brand: "#B2C5B8", // sage-50
+          // 다크모드
+          "dark-primary": "#1A1E1C", // 다크모드 기본 배경
+          "dark-secondary": "#232822", // 다크모드 보조 배경
+          "dark-tertiary": "#2C322B", // 다크모드 3단계 배경
+          "dark-hover": "#343A33", // 다크모드 호버 배경
+          "dark-selected": "#3C443B", // 다크모드 선택 배경
+          "dark-brand": "#8FB59C", // 다크모드 브랜드 컬러
         },
 
         // Text 토큰
@@ -52,6 +59,13 @@ const config: Config = {
           "on-color": "#FFFFFF", // white
           "on-brand": "#3F764A", // sage-100
           inverse: "#111827", // dark
+          // 다크모드
+          "dark-primary": "#E5E7E6", // 다크모드 기본 텍스트
+          "dark-secondary": "#B8BAB9", // 다크모드 보조 텍스트
+          "dark-placeholder": "#8A8C8B", // 다크모드 플레이스홀더
+          "dark-on-color": "#1A1E1C", // 다크모드 배경 위 텍스트
+          "dark-on-brand": "#E5E7E6", // 다크모드 브랜드 컬러 위 텍스트
+          "dark-inverse": "#FFFFFF", // 다크모드 반전 텍스트
         },
 
         // Border 토큰
@@ -61,6 +75,12 @@ const config: Config = {
           interactive: "#B2C5B8", // sage-50
           focus: "#84A68C", // sage-70
           inverse: "#3F764A", // sage-100
+          // 다크모드
+          "dark-subtle": "#2C322B", // 다크모드 연한 테두리
+          "dark-strong": "#3C443B", // 다크모드 진한 테두리
+          "dark-interactive": "#8FB59C", // 다크모드 상호작용 테두리
+          "dark-focus": "#A3C4B0", // 다크모드 포커스 테두리
+          "dark-inverse": "#E5E7E6", // 다크모드 반전 테두리
         },
 
         // 감정별 색상 시스템

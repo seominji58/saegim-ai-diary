@@ -1,6 +1,9 @@
+import Header from '@/components/layout/Header';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background-primary">
+      <Header />
       <main className="container mx-auto p-4">
         <h1 className="text-h1 text-text-primary text-center">새김</h1>
         <p className="text-body text-text-secondary text-center mt-2">
