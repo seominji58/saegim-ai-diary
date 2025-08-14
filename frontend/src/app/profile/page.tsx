@@ -14,6 +14,7 @@ const ProfilePage: NextPage = () => {
   const [profileData, setProfileData] = useState({
     nickname: '새김사용자',
     email: 'user@saegim.com',
+    profileImage: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +26,7 @@ const ProfilePage: NextPage = () => {
   };
 
   const handleProfileUpdate = () => {
-    // TODO: 프로필 업데이트 로직 구현
-    console.log('프로필 업데이트:', profileData);
+    router.push('/account/change-email');
   };
 
   const handlePasswordChange = () => {
@@ -40,14 +40,14 @@ const ProfilePage: NextPage = () => {
 
   const handleCustomerService = () => {
     // TODO: 고객센터 문의 로직 구현
-    console.log('고객센터 문의');
+    router.push('/support');
   };
 
   return (
     <div 
       className="flex flex-col h-screen"
       style={{ 
-        backgroundColor: isDark ? '#111827' : '#e5f0ef'
+        backgroundColor: 'var(--page-background)'
       }}
     >
       {/* 헤더 */}
@@ -70,8 +70,69 @@ const ProfilePage: NextPage = () => {
                 <div className="flex space-x-6">
                   {/* 프로필 이미지 */}
                   <div className="flex flex-col items-center min-w-[240px]">
-                    <div className="w-48 h-48 bg-gray-200 dark:bg-gray-600 rounded-xl shadow-md flex items-center justify-center overflow-hidden">
-                      <span className="text-6xl">📷</span>
+                    <div className="relative w-48 h-48 group">
+                      <input
+                        type="file"
+                        id="profile-upload"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = (event: ProgressEvent<FileReader>) => {
+                              const result = event.target?.result;
+                              if (result && typeof result === 'string') {
+                                setProfileData(prev => ({
+                                  ...prev,
+                                  profileImage: result
+                                }));
+                              }
+                            };
+                            reader.readAsDataURL(e.target.files[0]);
+                          }
+                        }}
+                      />
+                      <label
+                        htmlFor="profile-upload"
+                        className="cursor-pointer block w-full h-full"
+                      >
+                        <div className="w-full h-full bg-gray-200 dark:bg-gray-600 rounded-xl shadow-md flex items-center justify-center overflow-hidden">
+                          {profileData.profileImage ? (
+                            <img
+                              src={profileData.profileImage}
+                              alt="프로필 이미지"
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <span className="text-6xl">📷</span>
+                          )}
+                        </div>
+                        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="text-white text-center">
+                            <svg
+                              className="w-8 h-8 mx-auto mb-2"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                            </svg>
+                            <span className="text-sm">프로필 사진 변경</span>
+                          </div>
+                        </div>
+                      </label>
                     </div>
                   </div>
 

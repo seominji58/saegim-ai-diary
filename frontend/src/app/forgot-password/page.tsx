@@ -32,7 +32,7 @@ const ForgotPasswordPage = () => {
     <div 
       className="flex flex-col h-screen"
       style={{ 
-        backgroundColor: isDark ? '#111827' : '#e5f0ef'
+        backgroundColor: 'var(--page-background)'
       }}
     >
       <Header />
@@ -58,7 +58,7 @@ const ForgotPasswordPage = () => {
               {/* 재설정 이메일 보내기 버튼 */}
               <button
                 onClick={handleSendResetLink}
-                className="w-full mb-4 px-4 py-3 bg-[var(--button-primary-bg)] text-[var(--button-primary-text)] rounded hover:bg-[var(--button-primary-hover)] transition-colors font-medium"
+                className="w-full mb-4 saegim-button saegim-button-large"
               >
                 재설정 이메일 보내기
               </button>
