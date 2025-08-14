@@ -19,10 +19,21 @@ export default function LoginForm() {
     }));
   };
 
+  // 데모 계정 정보
+  const DEMO_ACCOUNT = {
+    email: 'demo@saegim.com',
+    password: 'saegim2024'
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: 로그인 로직 구현
-    console.log('로그인 시도:', formData);
+    // 데모 계정 로그인 체크
+    if (formData.email === DEMO_ACCOUNT.email && formData.password === DEMO_ACCOUNT.password) {
+      localStorage.setItem('isLoggedIn', 'true');
+      router.push('/dashboard');
+    } else {
+      alert('데모 계정 정보가 일치하지 않습니다.\n이메일: demo@saegim.com\n비밀번호: saegim2024');
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -101,6 +112,16 @@ export default function LoginForm() {
           >
             비밀번호 찾기
           </button>
+        </div>
+
+        {/* 데모 계정 안내 */}
+        <div className="text-center mt-6 p-4 bg-gray-50 dark:bg-background-dark-tertiary rounded-lg">
+          <p className="text-sm text-gray-600 dark:text-gray-400 font-light">
+            데모 계정으로 체험해보세요
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2 font-mono">
+            demo@saegim.com / saegim2024
+          </p>
         </div>
       </form>
     </div>

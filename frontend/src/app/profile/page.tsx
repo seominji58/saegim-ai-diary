@@ -7,6 +7,7 @@ import Sidebar from '@/components/layout/Sidebar';
 import { useTheme } from '@/hooks/use-theme';
 
 import { NextPage } from 'next';
+import ConfirmModal from '@/components/ui/ConfirmModal';
 
 const ProfilePage: NextPage = () => {
   const router = useRouter();
@@ -16,6 +17,8 @@ const ProfilePage: NextPage = () => {
     email: 'user@saegim.com',
     profileImage: '',
   });
+  
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,8 +37,13 @@ const ProfilePage: NextPage = () => {
   };
 
   const handleAccountDelete = () => {
-    // TODO: 계정 탈퇴 로직 구현
-    console.log('계정 탈퇴');
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    // TODO: 계정 탈퇴 API 호출
+    console.log('계정 탈퇴 확인');
+    setIsDeleteModalOpen(false);
   };
 
   const handleCustomerService = () => {
@@ -240,6 +248,16 @@ const ProfilePage: NextPage = () => {
           </div>
         </main>
       </div>
+      {/* 계정 탈퇴 확인 모달 */}
+      <ConfirmModal
+        isOpen={isDeleteModalOpen}
+        title="계정 탈퇴"
+        message="정말로 계정을 탈퇴하시겠습니까? 이 작업은 되돌릴 수 없으며, 모든 데이터가 영구적으로 삭제됩니다."
+        confirmText="예, 탈퇴하겠습니다"
+        cancelText="아니오"
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setIsDeleteModalOpen(false)}
+      />
     </div>
   );
 };
