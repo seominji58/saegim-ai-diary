@@ -146,6 +146,23 @@
   --emotion-worried-bg: #2b2620;
 }
 
+/* 공통 버튼 스타일 */
+.saegim-button {
+  @apply bg-[#5C8D89] text-white hover:bg-[#4A7A76] transition-colors;
+}
+
+.saegim-button-small {
+  @apply px-3 py-2 text-sm rounded;
+}
+
+.saegim-button-medium {
+  @apply px-4 py-2 text-base rounded font-medium;
+}
+
+.saegim-button-large {
+  @apply px-6 py-3 text-base rounded-lg font-medium;
+}
+
 /* ==========  기본 스타일  ========== */
 
 body {

@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import GoogleLoginButton from '@/components/ui/GoogleLoginButton';
 
 export default function LoginForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -29,8 +31,7 @@ export default function LoginForm() {
   };
 
   const handleFindPassword = () => {
-    // TODO: 비밀번호 찾기 로직 구현
-    console.log('비밀번호 찾기');
+    router.push('/forgot-password');
   };
 
   return (
@@ -82,8 +83,7 @@ export default function LoginForm() {
         {/* 로그인하기 버튼 */}
         <button
           type="submit"
-          className="w-full text-white dark:text-text-dark-on-color py-3 px-4 rounded-lg hover:opacity-90 active:opacity-100 transition-all duration-200 font-medium text-base tracking-wide shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sage-50 dark:focus:ring-border-dark-focus focus:ring-offset-2 dark:focus:ring-offset-background-dark-secondary"
-          style={{ backgroundColor: '#5C8D89' }}
+          className="w-full saegim-button saegim-button-large"
         >
           로그인하기
         </button>
