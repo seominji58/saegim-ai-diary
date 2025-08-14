@@ -13,8 +13,7 @@ const ResetPasswordErrorPage = () => {
   };
 
   const handleGoToHelp = () => {
-    // TODO: 고객센터 문의 페이지로 이동
-    console.log('고객센터 문의');
+    router.push('/support');
   };
 
   return (
@@ -43,7 +42,7 @@ const ResetPasswordErrorPage = () => {
                     이메일 인증 실패 시 화면 설계
                   </h1>
                   <p className="text-gray-600 dark:text-gray-300">
-                    수설계정 사용자입니까?<br/>
+                    소셜계정 사용자입니까?<br/>
                     비밀번호를 설정할 수 없습니다.
                   </p>
                 </div>
@@ -53,7 +52,7 @@ const ResetPasswordErrorPage = () => {
                   {/* 에러 표시 카드 */}
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-4">
                     <p className="text-red-600 dark:text-red-400 text-sm">
-                      수설계정에서 이메일 알림받기로도 직접 비밀번호 설정은 불가 안내
+                      소셜계정에서 이메일 알림받기로도 직접 비밀번호 설정은 불가 안내
                     </p>
                   </div>
 
